@@ -24,7 +24,7 @@ are we going to use to build `gocatchup`.
 
 ### Code hosting and CI
 
-**GitHub**
+Solution: **GitHub**
 
 Currently, I work at GitLab, but I'm choosing GitHub and its surrounding
 tools to host this code base and for CI/CD to get a better understanding
@@ -32,10 +32,9 @@ of the tools outside of GitLab, to prevent me from getting pigeonholed
 on what tools I use to deploy code, the plan is to more up to date with
 the industry.
 
-
 ### Repsitory
 
-**Monorepo**
+Soltuion: **Monorepo**
 
 The repository is going to be a mono repository where every service is
 inside this inside of this repository. The reason for this is to have
@@ -47,6 +46,8 @@ because it might need a different permissions model and a different set of
 tools.
 
 #### Repository structure
+
+Solution: **Packes as layers**
 
 There a lot of ways to struct a Go application. We will try the
 [Packages as layers](https://www.gobeyond.dev/packages-as-layers/)
@@ -66,4 +67,3 @@ ideal.
 
 Deployment shouldn't take long and should be automated. The mean time of
 merge to deployment should be less than 15 minutes.
-
