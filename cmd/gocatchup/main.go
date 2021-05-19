@@ -1,3 +1,4 @@
+// Package main the the entry point for the gocatcup command.
 package main
 
 import (
@@ -6,5 +7,6 @@ import (
 
 func main() {
 	println(version.Version)
+
 	println("Go catchup!")
 }
