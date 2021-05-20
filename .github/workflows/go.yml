@@ -12,6 +12,7 @@ on:
     - main
     paths:
     - '**.go'
+    - .github/workflows/go.yml
 
 jobs:
   golangci:
@@ -23,3 +24,17 @@ jobs:
       uses: golangci/golangci-lint-action@v2
       with:
         version: latest
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: go build 
+      run: make all-build
+    - name: Archive gocatcup binaries
+      uses: actions/upload-artifact@v2
+      with:
+        name: binaries
+        path: bin/**
+        retention-days: 7
