@@ -7,6 +7,12 @@ as of Go 1.13) and vendoring (which reasonable minds might disagree about).  You
 will need to run `go mod vendor` to create a `vendor` directory when you have
 dependencies.
 
+## Makefile
+
+The `Makefile` is the single source of truth of how to run things. Every task
+that you need to run on this project can be found inside of the Makefile. To see
+all the commands you can run use `make help`.
+
 ## Building
 
 Run `make` or `make build` to compile your app.  This will use a Docker image to
@@ -30,3 +36,8 @@ Run `make help` to get a list of available targets.
 
 Run `make test` will run your tests inside of a docker container. If you want to
 run tests locally you can run `./build/test.sh` directly.
+
+## Starting shell inside of container
+
+It might be useful to start a shell inside of the build container. To start an
+interactive shell run `make shell`.
