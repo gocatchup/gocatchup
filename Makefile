@@ -18,7 +18,7 @@
 BINS := gocatchup
 
 # Where to push the docker image.
-REGISTRY ?= ghcr.io
+REGISTRY ?= ghcr.io/gocatchup
 
 # This version-strategy uses git tags to set the version string
 VERSION ?= $(shell git describe --tags --always --dirty)
