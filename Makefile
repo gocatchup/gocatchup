@@ -29,7 +29,7 @@ VERSION ?= $(shell git describe --tags --always --dirty)
 
 SRC_DIRS := cmd internal
 
-ALL_PLATFORMS := linux/amd64 linux/arm linux/arm64 darwin/amd64 darwin/arm64
+ALL_PLATFORMS := linux/amd64 linux/arm64 darwin/amd64 darwin/arm64
 
 # Used internally.  Users should pass GOOS and/or GOARCH.
 OS := $(if $(GOOS),$(GOOS),$(shell go env GOOS))
@@ -39,7 +39,7 @@ BASEIMAGE ?= gcr.io/distroless/static
 
 TAG := $(VERSION)__$(OS)_$(ARCH)
 
-BUILD_IMAGE ?= golang:1.16.4-alpine
+BUILD_IMAGE ?= golang:1.16.5-alpine
 
 BIN_EXTENSION :=
 ifeq ($(OS), windows)
