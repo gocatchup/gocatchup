@@ -2,11 +2,13 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gocatchup/gocatchup/internal/version"
 )
 
 func main() {
-	println(version.Version)
+	log.Println(version.Version)
 
-	println("Go catchup!")
+	log.Println("Go catchup!")
 }

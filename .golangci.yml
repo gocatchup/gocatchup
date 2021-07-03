@@ -34,8 +34,6 @@ linters-settings:
     simplify: true
   goimports:
     local-prefixes: github.com/gocatchup/gocatchup
-  golint:
-    min-confidence: 0.0
   gosimple:
     go: "1.16"
   govet:
@@ -47,6 +45,9 @@ linters-settings:
     go: "1.16"
   unused:
     go: "1.16"
+  revive:
+    confidence: 0.0
+    enableAllRules: true
 
 linters:
   presets:
@@ -59,8 +60,13 @@ linters:
   - comment
   - import
   - format
+  - metalinter
   disable:
   - misspell
+  - golint
+  - maligned
+  - interfacer
+  - scopelint
 
 issues:
   exclude-use-default: false
