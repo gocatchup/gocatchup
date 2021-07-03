@@ -39,7 +39,7 @@ BASEIMAGE ?= gcr.io/distroless/static
 
 TAG := $(VERSION)__$(OS)_$(ARCH)
 
-BUILD_IMAGE ?= golang:1.16.4-alpine
+BUILD_IMAGE ?= golang:1.16.5-alpine
 
 BIN_EXTENSION :=
 ifeq ($(OS), windows)
