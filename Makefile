@@ -243,6 +243,17 @@ container-clean:
 bin-clean:
 	rm -rf .go bin
 
+lint: # @HELP run all available linters
+lint: golint
+
+golint:
+	@docker run                        \
+	    --rm                           \
+	    -v $$(pwd):/app                \
+	    -w /app                        \
+	    golangci/golangci-lint:v1.41.1 \
+	    golangci-lint run
+
 help: # @HELP prints this message
 help:
 	@echo "VARIABLES:"
