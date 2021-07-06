@@ -1,0 +1,26 @@
+name: Pull Request Close
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: delete branch
+      uses: SvanBoxel/delete-merged-branch@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  delete-docker-image:
+    name: Delete image from ghcr.io
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete image
+      uses: bots-house/ghcr-delete-image-action@v1.0.0
+      with:
+        owner: ${{ github.repository_owner }}
+        name: ${{ github.event.repository.name }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: pr-${{ github.event.pull_request.number }}__linux_amd64

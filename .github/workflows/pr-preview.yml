@@ -1,0 +1,18 @@
+name: docker-preview
+
+on: [pull_request]
+
+jobs:
+  docker-pr:
+    name: docker
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: linux-amd64
+      run: make push-linux_amd64 VERSION=pr-${{ github.event.pull_request.number }}
