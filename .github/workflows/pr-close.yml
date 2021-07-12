@@ -22,5 +22,5 @@ jobs:
       with:
         owner: ${{ github.repository_owner }}
         name: ${{ github.event.repository.name }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
         tag: pr-${{ github.event.pull_request.number }}__linux_amd64
